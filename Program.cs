@@ -55,6 +55,9 @@ namespace AddressBook
                         case 7:
                             obj.ViewByCityOrStateName();
                             break;
+                        case 8:
+                            obj.CountByCityOrStateName();
+                            break;
                     }
                     Console.WriteLine("Do you wish to continue? Press (y/n)");
                     keyPress = Console.ReadLine();

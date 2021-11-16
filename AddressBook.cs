@@ -312,5 +312,57 @@ namespace AddressBook
                 Console.WriteLine("\nWrong entry, Please choose between 1 and 2");
             }
         }
+        //This method for to get number of contact persons by counting city or state
+        public void CountByCityOrStateName()
+        {
+            Console.WriteLine("Select 1 : count person by city, \n2: Count person by state");              
+            int num = Convert.ToInt32(Console.ReadLine());
+            void CountByCity()                     
+            {
+                foreach (var item in cityBook)
+                {
+                    int count = item.Value.Count();
+                    Console.WriteLine("There are {0} number of people in City- {1}", count, item.Key);
+                }
+            }
+            void CountBystate()                
+            {
+                foreach (var item in stateBook)
+                {
+                    int count = item.Value.Count();
+                    Console.WriteLine("There are {0} number of people in City- {1}", count, item.Key);
+                }
+            }
+
+            if (num == 1)
+            {
+                //When there are atleast 1 entry
+                if (cityBook.Count != 0) 
+                {
+                    CountByCity();
+                }
+                else
+                {
+                    Console.WriteLine("Currently no entries stored");
+                }
+            }
+            else if (num == 2)
+            {
+                if (stateBook.Count != 0)
+                {
+                    CountBystate();
+                }
+                else
+                {
+                    Console.WriteLine("Currently no entries stored");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid selection, please select between 1 and 2");
+            }
+
+
+        }
     }
 }
