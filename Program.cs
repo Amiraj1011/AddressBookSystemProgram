@@ -72,11 +72,12 @@ namespace AddressBookSystem
 
                 }
                 //calling method to add new addressbook in dictionary
-                AddressBook.AddTo(book);              
+                AddressBook.AddTo(book);
                 AddressBook.WriteAddressBookUsingStreamWriter();
                 AddressBook.ReadAddressBookUsingStreamReader();
-                numberBook++;
-                
+                AddressBook.CsvSerialise();
+                AddressBook.CsvDeserialise();
+                numberBook++;              
             }      
             
         }
