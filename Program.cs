@@ -77,6 +77,8 @@ namespace AddressBookSystem
                 AddressBook.ReadAddressBookUsingStreamReader();
                 AddressBook.CsvSerialise();
                 AddressBook.CsvDeserialise();
+                AddressBook.JsonSerializeAddressBook();
+                //AddressBook.JsonDeserializationAddressBook();
                 numberBook++;              
             }      
             

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -475,8 +476,36 @@ namespace AddressBookSystem
 
             }
 
+        }
+        public static void JsonSerializeAddressBook()
+        {
+            string jsonPath = @"C:\Users\Admin\source\repos\AddressBookSystem\Files\JsonFile.json";
+            string result = JsonConvert.SerializeObject(addressBook);
+
+            File.AppendAllText(jsonPath, result);
 
         }
+        public static void JsonDeserializationAddressBook()
+        {
+            try
+            {
+                string jsonPath = @"C:\Users\Admin\source\repos\AddressBookSystem\Files\JsonFile.json";
+              
+                ContactDetails result = JsonConvert.DeserializeObject<ContactDetails>(File.ReadAllText(jsonPath));
 
+                {
+                    
+
+                        Console.WriteLine(result.firstName + "\n" + result.lastName + "\n" + result.address + "\n" + result.city + "\n" + result.state + "\n" + result.phoneNumber + "\n" + result.email);
+                   
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+        }
     }
 }
